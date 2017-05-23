@@ -1,0 +1,35 @@
+#################
+## Eclipse
+#################
+
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+*.class
+target/
+
+*.tomcatplugin
+src/main/webapp/.#webclasspath
+
+#################
+## IntelliJ IDEA
+#################
+
+.idea/
+*.iml
+work/
+out/
+
+
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+	<!-- ****************RollingFileAppender**************************************** -->
+	<appender name="logger" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>/data/log/web-01/web-01.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/data/log/web-01/web-01-%d{yyyy-MM-dd}.%i.zip</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>20MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%level [%c{5}] [%t] [%date{yyyy-MM-dd HH:mm:ss}] %5p - %m %n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="LOGGER_FOR_WEB-01_XML" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>/data/log/web-01/web-01/web-01-xml.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/data/log/web-01/web-01/web-01-xml-%d{yyyy-MM-dd}.%i.zip</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>20MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%level [%class{10}] [%t] [%date{yyyy-MM-dd HH:mm:ss}]  %m %n</Pattern>
+		</layout>
+	</appender>
+	
+	<appender name="LOGGER_FOR_ACCESS_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>/data/log/web-01/web-01/web-01-access.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/data/log/web-01/web-01/web-01-access-%d{yyyy-MM-dd}.%i.zip</FileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>20MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>100</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%level [%class{10}] [%t] [%date{yyyy-MM-dd HH:mm:ss}]  %m %n</Pattern>
+		</layout>
+	</appender>
+
+	<!-- ****************AsyncAppender 日志线程管理**************************************** -->
+	<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="logger" />
+		<queueSize>100000</queueSize>
+		<discardingThreshold>20</discardingThreshold>
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%c{5}] [%t] [%date{yyyy-MM-dd HH:mm:ss}] %5p - %m %n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="LOGGER_FOR_WEB-01_XML_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="LOGGER_FOR_WEB-01_XML" />
+		<queueSize>1000000</queueSize>
+		<discardingThreshold>15</discardingThreshold>
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<appender name="LOGGER_FOR_ACCESS_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<appender-ref ref="LOGGER_FOR_ACCESS_LOG" />
+		<queueSize>1000000</queueSize>
+		<discardingThreshold>15</discardingThreshold>
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	
+	<!-- ****************logger**************************************** -->
+	<root level="ERROR" additivity="false">
+		<appender-ref ref="ASYNC" />
+	</root>
+	<logger name="com.fhic" level="DEBUG" additivity="false">
+		<appender-ref ref="ASYNC" />
+<!-- 		<appender-ref ref="CONSOLE" /> -->
+	</logger>
+	<logger name="com.fhic.business.server.dao.mapper" level="WARN" additivity="false">
+		<appender-ref ref="ASYNC" />
+<!-- 		<appender-ref ref="CONSOLE" /> -->
+	</logger>
+	<logger name="org.springframework" level="ERROR" additivity="false">
+		<appender-ref ref="ASYNC" />
+	</logger>
+	
+	<logger name="LOGGER_FOR_WEB-01_XML" level="DEBUG"  additivity="false">
+		<appender-ref ref="LOGGER_FOR_WEB-01_XML_ASYNC" />
+	</logger>
+	
+	<logger name="LOGGER_FOR_ACCESS_LOG" level="DEBUG"  additivity="false">
+		<appender-ref ref="LOGGER_FOR_ACCESS_LOG_ASYNC" />
+	</logger>
+</configuration>

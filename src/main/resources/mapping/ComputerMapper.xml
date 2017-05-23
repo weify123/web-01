@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wfy.server.dao.ComputerDao">
+
+    <resultMap id="ComputerBaseMap" type="com.wfy.server.model.Computer">
+        <id column="computer_id" property="computerId" jdbcType="VARCHAR"/>
+        <result column="computer_name" property="computerName" jdbcType="VARCHAR"/>
+        <result column="computer_desc" property="computerDesc" jdbcType="VARCHAR"/>
+        <result column="computer_type" property="computerType" jdbcType="VARCHAR"/>
+        <result column="computer_country" property="computerCountry" jdbcType="VARCHAR"/>
+        <result column="computer_count" property="computerCount" jdbcType="INTEGER"/>
+        <result column="computer_price" property="computerPrice" jdbcType="DECIMAL"/>
+        <result column="computer_size" property="computerSize" jdbcType="VARCHAR"/>
+        <result column="computer_color" property="computerColor" jdbcType="VARCHAR"/>
+        <result column="removed" property="removed" jdbcType="INTEGER"/>
+        <result column="created" property="created" jdbcType="DATE"/>
+        <result column="updated" property="updated" jdbcType="DATE"></result>
+
+    </resultMap>
+
+    <select id="queryObjList" resultMap="ComputerBaseMap">
+        SELECT * FROM computer
+    </select>
+
+</mapper>
