@@ -216,7 +216,7 @@ public class BigFileReader {
             this.handle = handle;
         }
 
-        public Builder withTreahdSize(int size){
+        public Builder withThreadSize(int size){
             this.threadSize = size;
             return this;
         }

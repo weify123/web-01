@@ -29,7 +29,7 @@ public class Main {
 
             }
         });
-        builder.withTreahdSize(10)
+        builder.withThreadSize(10)
                 .withCharset("gbk")
                 .withBufferSize(1024*1024);
         BigFileReader bigFileReader = builder.build();
