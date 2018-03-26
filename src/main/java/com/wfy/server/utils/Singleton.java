@@ -14,7 +14,7 @@ package com.wfy.server.utils;
  */
 public class Singleton {
 
-    private Singleton(){
+    private Singleton() {
 
     }
 
@@ -22,11 +22,11 @@ public class Singleton {
         private static Singleton instance = new Singleton();
     }
 
-    public static Singleton getInstance(){
+    public static Singleton getInstance() {
         return SingletonFactory.instance;
     }
 
-    public Object readResolve(){
+    public Object readResolve() {
         return getInstance();
     }
 }
