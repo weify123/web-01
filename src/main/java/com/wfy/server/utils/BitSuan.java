@@ -9,29 +9,28 @@ package com.wfy.server.utils;
 public class BitSuan {
 
     //(1)加法运算
-    public static int add(int a,int b)
-    {
-        int sum=a;
-        while(b!=0)
-        {
+    public static int add(int a, int b) {
+        int sum = a;
+        while (b != 0) {
             //a与b无进位相加
-            sum=a^b;
-            b=(a&b)<<1;
-            a=sum;
+            sum = a ^ b;
+            b = (a & b) << 1;
+            a = sum;
         }
         return sum;
 
     }
+
     //负数按位置取反+1
-    public static int negNum(int n)
-    {
-        return add(~n,1);
+    public static int negNum(int n) {
+        return add(~n, 1);
     }
+
     //(2)减法运算
-    public static int minus(int a,int b)
-    {
-        return add(a,negNum(b));
+    public static int minus(int a, int b) {
+        return add(a, negNum(b));
     }
+
     //(3)乘法运算
     public static int multi(int a, int b) {
         int res = 0;
@@ -44,6 +43,7 @@ public class BitSuan {
         }
         return res;
     }
+
     //判断是否是负数
     public static boolean isNeg(int n) {
         return n < 0;
@@ -61,6 +61,7 @@ public class BitSuan {
         }
         return isNeg(a) ^ isNeg(b) ? negNum(res) : res;
     }
+
     //(4)除法运算
     public static int divide(int a, int b) {
         if (b == 0) {
@@ -78,14 +79,13 @@ public class BitSuan {
         }
     }
 
-    public static void main(String[]args)
-    {
-        int a=10;
-        int b=5;
-        System.out.println(add(a,b));
-        System.out.println(minus(a,b));
-        System.out.println(multi(a,b));
-        System.out.println(divide(a,b));
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 5;
+        System.out.println(add(a, b));
+        System.out.println(minus(a, b));
+        System.out.println(multi(a, b));
+        System.out.println(divide(a, b));
 
     }
 }
