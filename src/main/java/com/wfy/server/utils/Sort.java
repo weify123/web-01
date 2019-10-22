@@ -11,7 +11,9 @@ import java.util.Arrays;
 public class Sort {
 
     /**
-     * 冒泡排序 稳定 原理：相邻两个元素比较大小进行交换，一趟冒泡后会有一个元素到达最终位置 复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
+     * 冒泡排序 稳定 原理：相邻两个元素比较大小进行交换，一趟冒泡后会有一个元素到达最终位置
+     * 复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
+     * 空间复杂度 O(1)
      */
     public static void bubbleSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -35,7 +37,9 @@ public class Sort {
     }
 
     /**
-     * 插入排序 稳定 原理：从有序序列中选择合适的位置进行插入 复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
+     * 插入排序 稳定 原理：从有序序列中选择合适的位置进行插入
+     * 复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
+     * 空间复杂度 O(1)
      */
     public static void insertSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -59,7 +63,9 @@ public class Sort {
     }
 
     /**
-     * 希尔排序(缩小增量排序) 不稳定 按步长进行分组，组内直接插入，缩小增量再次进行此步骤，增量为1时相当于一次直接插入。 复杂度：最好O(n) - 最坏O(n^s 1<s<2) - 平均O(n^1.3)
+     * 希尔排序(缩小增量排序) 不稳定 按步长进行分组，组内直接插入，缩小增量再次进行此步骤，增量为1时相当于一次直接插入。
+     * 复杂度：最好O(n) - 最坏O(n^s 1<s<2) - 平均O(n^1.3)
+     * 空间复杂度 O(1)
      */
     public static void shellSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -103,7 +109,9 @@ public class Sort {
     }
 
     /**
-     * 选择排序 不稳定 原理：每次从无序序列选择一个最小的 复杂度：最好O(n^2) - 最坏O(n^2) - 平均O(n^2)
+     * 选择排序 不稳定 原理：每次从无序序列选择一个最小的
+     * 复杂度：最好O(n^2) - 最坏O(n^2) - 平均O(n^2)
+     * 空间复杂度 O(1)
      */
     public static void selectSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -125,7 +133,9 @@ public class Sort {
     }
 
     /**
-     * 快速排序 不稳定 原理：分治+递归 复杂度：最好O(nlgn) - 最坏O(n^2) - 平均O(nlgn)
+     * 快速排序 不稳定 原理：分治+递归
+     * 复杂度：最好O(nlgn) - 最坏O(n^2) - 平均O(nlgn)
+     * 空间复杂度 O(lgn)
      */
     public static void quickSort(int[] a, int low, int high) {
 
@@ -137,7 +147,8 @@ public class Sort {
     }
 
     /**
-     * 选取pivot的方式：固定基准元 随机基准 三数取中 快排的优化：针对随机数组+有序数组+重复数组 1.当待排序序列的长度分割到一定大小后，使用插入排序<三数取中+插入排序>：效率提高一些，但是都解决不了重复数组的问题。
+     * 选取pivot的方式：固定基准元 随机基准 三数取中 快排的优化：针对随机数组+有序数组+重复数组
+     * 1.当待排序序列的长度分割到一定大小后，使用插入排序<三数取中+插入排序>：效率提高一些，但是都解决不了重复数组的问题。
      * 2.在一次分割结束后，可以把与Key相等的元素聚在一起，继续下次分割时，不用再对与key相等元素分割 <三数取中+插排+聚集相同元素>
      */
     private static int partition(int[] a, int low, int high) {
@@ -159,7 +170,9 @@ public class Sort {
     }
 
     /**
-     * 归并排序 稳定 原理：两个有序序列的合并，方法：分治 + 递归 复杂度：最好O(nlgn) - 最坏O(nlgn) - 平均O(nlgn)
+     * 归并排序 稳定 原理：两个有序序列的合并，方法：分治 + 递归
+     * 复杂度：最好O(nlgn) - 最坏O(nlgn) - 平均O(nlgn)
+     * 空间复杂度 O(n)
      */
     public static void mergeSort(int[] a, int low, int high) {
         int mid = (low + high) / 2;
@@ -203,7 +216,13 @@ public class Sort {
     }
 
     /**
-     * 堆排序 原理：利用堆的特性 复杂度：O(nlogn) [平均 - 最好 - 最坏]
+     * 堆排序 利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：
+     * 即子结点的键值或索引总是小于（或者大于）它的父节点。堆排序可以说是一种利用堆的概念来排序的选择排序。
+     * 分为两种方法：
+     * 大顶堆：每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列；
+     * 小顶堆：每个节点的值都小于或等于其子节点的值，在堆排序算法中用于降序排列
+     * 复杂度：O(nlogn) [平均 - 最好 - 最坏]
+     * 空间复杂度 O(1)
      */
     public static void heapSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -244,6 +263,13 @@ public class Sort {
         }
     }
 
+
+    /**
+     * 计数排序 核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。
+     * 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数
+     * 复杂度：O(n+k) [平均 - 最好 - 最坏]
+     * 空间复杂度 O(k)
+     */
     public static int[] countingSort(int[] sourceArray) throws Exception {
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         int maxValue = getMaxValue(arr);
@@ -279,6 +305,11 @@ public class Sort {
         return maxValue;
     }
 
+    /**
+     * 桶排序 原理：桶排序是计数排序的升级版
+     * 复杂度：[平均O(n+k) - 最好O(n+k) - 最坏O(n^2)]
+     * 空间复杂度 O(n+k)
+     */
     public static int[] bucketSorts(int[] sourceArray) throws Exception {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
@@ -331,6 +362,12 @@ public class Sort {
         return arr;
     }
 
+    /**
+     * 基数排序 原理：将整数按位数切割成不同的数字，然后按每个位数分别比较。
+     * 由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。
+     * 复杂度：[平均O(n+k) - 最好O(n+k) - 最坏O(n^2)]
+     * 空间复杂度 O(n+k)
+     */
     public static int[] radixSorts(int[] sourceArray) throws Exception {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
