@@ -11,10 +11,7 @@ import java.util.Arrays;
 public class Sort {
 
     /**
-     * 冒泡排序 稳定
-     原理：相邻两个元素比较大小进行交换，一趟冒泡后会有一个元素到达最终位置
-     复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
-     * @param a
+     * 冒泡排序 稳定 原理：相邻两个元素比较大小进行交换，一趟冒泡后会有一个元素到达最终位置 复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
      */
     public static void bubbleSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -38,10 +35,7 @@ public class Sort {
     }
 
     /**
-     * 插入排序 稳定
-     原理：从有序序列中选择合适的位置进行插入
-     复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
-     * @param a
+     * 插入排序 稳定 原理：从有序序列中选择合适的位置进行插入 复杂度：最好 - 最坏 - 平均 O(n) - O(n^2) - O(n^2)
      */
     public static void insertSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -65,10 +59,7 @@ public class Sort {
     }
 
     /**
-     * 希尔排序(缩小增量排序) 不稳定
-     按步长进行分组，组内直接插入，缩小增量再次进行此步骤，增量为1时相当于一次直接插入。
-     复杂度：最好O(n) - 最坏O(n^s 1<s<2) - 平均O(n^1.3)
-     * @param a
+     * 希尔排序(缩小增量排序) 不稳定 按步长进行分组，组内直接插入，缩小增量再次进行此步骤，增量为1时相当于一次直接插入。 复杂度：最好O(n) - 最坏O(n^s 1<s<2) - 平均O(n^1.3)
      */
     public static void shellSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -112,10 +103,7 @@ public class Sort {
     }
 
     /**
-     * 选择排序 不稳定
-     原理：每次从无序序列选择一个最小的
-     复杂度：最好O(n^2) - 最坏O(n^2) - 平均O(n^2)
-     * @param a
+     * 选择排序 不稳定 原理：每次从无序序列选择一个最小的 复杂度：最好O(n^2) - 最坏O(n^2) - 平均O(n^2)
      */
     public static void selectSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -137,12 +125,7 @@ public class Sort {
     }
 
     /**
-     * 快速排序 不稳定
-     原理：分治+递归
-     复杂度：最好O(nlgn) - 最坏O(n^2) - 平均O(nlgn)
-     * @param a
-     * @param low
-     * @param high
+     * 快速排序 不稳定 原理：分治+递归 复杂度：最好O(nlgn) - 最坏O(n^2) - 平均O(nlgn)
      */
     public static void quickSort(int[] a, int low, int high) {
 
@@ -154,14 +137,8 @@ public class Sort {
     }
 
     /**
-     * 选取pivot的方式：固定基准元 随机基准 三数取中
-     快排的优化：针对随机数组+有序数组+重复数组
-     1.当待排序序列的长度分割到一定大小后，使用插入排序<三数取中+插入排序>：效率提高一些，但是都解决不了重复数组的问题。
-     2.在一次分割结束后，可以把与Key相等的元素聚在一起，继续下次分割时，不用再对与key相等元素分割 <三数取中+插排+聚集相同元素>
-     * @param a
-     * @param low
-     * @param high
-     * @return
+     * 选取pivot的方式：固定基准元 随机基准 三数取中 快排的优化：针对随机数组+有序数组+重复数组 1.当待排序序列的长度分割到一定大小后，使用插入排序<三数取中+插入排序>：效率提高一些，但是都解决不了重复数组的问题。
+     * 2.在一次分割结束后，可以把与Key相等的元素聚在一起，继续下次分割时，不用再对与key相等元素分割 <三数取中+插排+聚集相同元素>
      */
     private static int partition(int[] a, int low, int high) {
         int pivot = a[low];
@@ -182,12 +159,7 @@ public class Sort {
     }
 
     /**
-     * 归并排序 稳定
-     原理：两个有序序列的合并，方法：分治 + 递归
-     复杂度：最好O(nlgn) - 最坏O(nlgn) - 平均O(nlgn)
-     * @param a
-     * @param low
-     * @param high
+     * 归并排序 稳定 原理：两个有序序列的合并，方法：分治 + 递归 复杂度：最好O(nlgn) - 最坏O(nlgn) - 平均O(nlgn)
      */
     public static void mergeSort(int[] a, int low, int high) {
         int mid = (low + high) / 2;
@@ -231,10 +203,7 @@ public class Sort {
     }
 
     /**
-     * 堆排序
-     原理：利用堆的特性
-     复杂度：O(nlogn) [平均 - 最好 - 最坏]
-     * @param a
+     * 堆排序 原理：利用堆的特性 复杂度：O(nlogn) [平均 - 最好 - 最坏]
      */
     public static void heapSort(int[] a) {
         if (null == a || a.length < 2) {
@@ -251,7 +220,7 @@ public class Sort {
 
     // 建堆
     private static void buildMaxHeap(int[] a) {
-        for (int i = a.length/2; i >= 0; i--) {
+        for (int i = a.length / 2; i >= 0; i--) {
             adjustHeap(a, a.length, i);
         }
     }
@@ -274,31 +243,192 @@ public class Sort {
             adjustHeap(a, size, largest);
         }
     }
-    public static void main(String[] args) {
-        int[] a = { 32, 12, 3, 44, 2, 6, 8 };
+
+    public static int[] countingSort(int[] sourceArray) throws Exception {
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        int maxValue = getMaxValue(arr);
+        return countSort(arr, maxValue);
+    }
+
+    private static int[] countSort(int[] arr, int maxValue) {
+
+        int bucketLen = maxValue + 1;
+
+        int[] bucket = new int[bucketLen];
+
+        for (int value : arr) {
+            bucket[value]++;
+        }
+        int sortedIndex = 0;
+        for (int j = 0; j < bucketLen; j++) {
+            while (bucket[j] > 0) {
+                arr[sortedIndex++] = j;
+                bucket[j]--;
+            }
+        }
+        return arr;
+    }
+
+    private static int getMaxValue(int[] arr) {
+        int maxValue = arr[0];
+        for (int value : arr) {
+            if (maxValue < value) {
+                maxValue = value;
+            }
+        }
+        return maxValue;
+    }
+
+    public static int[] bucketSorts(int[] sourceArray) throws Exception {
+        // 对 arr 进行拷贝，不改变参数内容
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        return bucketSort(arr, 5);
+    }
+
+    private static int[] bucketSort(int[] arr, int bucketSize) throws Exception {
+        if (arr.length == 0) {
+            return arr;
+        }
+        int minValue = arr[0];
+        int maxValue = arr[0];
+        for (int value : arr) {
+            if (value < minValue) {
+                minValue = value;
+            } else if (value > maxValue) {
+                maxValue = value;
+            }
+        }
+        int bucketCount = (int) Math.floor((maxValue - minValue) / bucketSize) + 1;
+        int[][] buckets = new int[bucketCount][0];
+        // 利用映射函数将数据分配到各个桶中
+        for (int i = 0; i < arr.length; i++) {
+            int index = (int) Math.floor((arr[i] - minValue) / bucketSize);
+            buckets[index] = arrAppend(buckets[index], arr[i]);
+        }
+        int arrIndex = 0;
+        for (int[] bucket : buckets) {
+            if (bucket.length <= 0) {
+                continue;
+            }
+            // 对每个桶进行排序，这里使用了插入排序
+            bucket = InsertSort(bucket);
+            for (int value : bucket) {
+                arr[arrIndex++] = value;
+            }
+        }
+        return arr;
+    }
+
+    /**
+     * 自动扩容，并保存数据
+     *
+     * @paramarr
+     * @paramvalue
+     */
+    private static int[] arrAppend(int[] arr, int value) {
+        arr = Arrays.copyOf(arr, arr.length + 1);
+        arr[arr.length - 1] = value;
+        return arr;
+    }
+
+    public static int[] radixSorts(int[] sourceArray) throws Exception {
+        // 对 arr 进行拷贝，不改变参数内容
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        int maxDigit = getMaxDigit(arr);
+        return radixSort(arr, maxDigit);
+    }
+
+    /**
+     * 获取最高位数
+     */
+    private static int getMaxDigit(int[] arr) {
+        int maxValue = getMaxValue(arr);
+        return getNumLenght(maxValue);
+    }
+
+    protected static int getNumLenght(long num) {
+        if (num == 0) {
+            return 1;
+        }
+        int lenght = 0;
+        for (long temp = num; temp != 0; temp /= 10) {
+            lenght++;
+        }
+        return lenght;
+    }
+
+    private static int[] radixSort(int[] arr, int maxDigit) {
+        int mod = 10;
+        int dev = 1;
+        for (int i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
+            // 考虑负数的情况，这里扩展一倍队列数，其中 [0-9]对应负数，[10-19]对应正数 (bucket + 10)
+            int[][] counter = new int[mod * 2][0];
+            for (int j = 0; j < arr.length; j++) {
+                int bucket = ((arr[j] % mod) / dev) + mod;
+                counter[bucket] = arrAppend(counter[bucket], arr[j]);
+            }
+            int pos = 0;
+            for (int[] bucket : counter) {
+                for (int value : bucket) {
+                    arr[pos++] = value;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static int[] InsertSort(int[] sourceArray) throws Exception {
+        // 对 arr 进行拷贝，不改变参数内容
+        int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
+        // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
+        for (int i = 1; i < arr.length; i++) {
+            // 记录要插入的数据
+            int tmp = arr[i];
+            // 从已经排序的序列最右边的开始比较，找到比其小的数
+            int j = i;
+            while (j > 0 && tmp < arr[j - 1]) {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            // 存在比其小的数，插入
+            if (j != i) {
+                arr[j] = tmp;
+            }
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int[] a = {32, 12, 3, 44, 2, 6, 8};
         bubbleSort(a);
         System.out.println(Arrays.toString(a));
-        int[] s = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] s = {32, 12, 3, 44, 2, 6, 8};
         insertSort(s);
         System.out.println(Arrays.toString(s));
-        int[] ss = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] ss = {32, 12, 3, 44, 2, 6, 8};
         shellSort(ss);
         System.out.println(Arrays.toString(ss));
-        int[] ss1 = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] ss1 = {32, 12, 3, 44, 2, 6, 8};
         shellSort1(ss1);
         System.out.println(Arrays.toString(ss1));
-        int[] sl = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] sl = {32, 12, 3, 44, 2, 6, 8};
         selectSort(sl);
         System.out.println(Arrays.toString(sl));
-        int[] qs = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] qs = {32, 12, 3, 44, 2, 6, 8};
         quickSort(qs, 0, qs.length - 1);
         System.out.println(Arrays.toString(qs));
-        int[] ms = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] ms = {32, 12, 3, 44, 2, 6, 8};
         mergeSort(ms, 0, qs.length - 1);
         System.out.println(Arrays.toString(ms));
-        int[] hs = { 32, 12, 3, 44, 2, 6, 8 };
+        int[] hs = {32, 12, 3, 44, 2, 6, 8};
         heapSort(hs);
         System.out.println(Arrays.toString(hs));
+        int[] cs = {32, 12, 3, 44, 2, 6, 8};
+        System.out.println(Arrays.toString(countingSort(cs)));
+        int[] bs = {32, 12, 3, 44, 2, 6, 8};
+        System.out.println(Arrays.toString(bucketSorts(bs)));
+        int[] rs = {32, 12, 3, 44, 2, 6, 8};
+        System.out.println(Arrays.toString(radixSorts(rs)));
 
     }
 }
