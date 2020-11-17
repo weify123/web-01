@@ -87,5 +87,18 @@ public class BitSuan {
         System.out.println(multi(a, b));
         System.out.println(divide(a, b));
 
+
+        int x = 10, y = 20; //定义两个变量
+        System.out.println("交换前 x=" + x + ",y=" + y);
+        x = x + y; //x = 30
+        y = x - y; //y = 10
+        x = x - y; //x = 20
+        System.out.println("交换后 x=" + x + ",y=" + y);
+
+        System.out.println("交换前 x=" + x + ",y=" + y);
+        x = x ^ y;  //x = 30
+        y = x ^ y;  //y = 10
+        x = x ^ y;  //x = 20
+        System.out.println("交换后 x=" + x + ",y=" + y);
     }
 }
